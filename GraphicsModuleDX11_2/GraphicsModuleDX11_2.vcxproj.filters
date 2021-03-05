@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="interface">
+      <UniqueIdentifier>{228ba44a-27c9-4bbf-bd10-fd59503f9ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="etc">
+      <UniqueIdentifier>{098401ff-055e-468e-907b-0d19125da230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsModule">
+      <UniqueIdentifier>{8e59bd5c-0126-4733-81ec-c663a2ae389a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\NewFilter1">
+      <UniqueIdentifier>{3d760faf-e20a-409f-95fc-83221a6649ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{98701ab4-8016-4527-9310-10206acde978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\Texture">
+      <UniqueIdentifier>{94e57b7a-0c7d-4bcc-bd46-fbc46d346732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\swapchain">
+      <UniqueIdentifier>{4cd601ce-a401-4d5c-8fa2-4a06b50574fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\mesh">
+      <UniqueIdentifier>{f93df660-a011-4650-8efe-28c23a26cdee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\mesh\StaticMesh">
+      <UniqueIdentifier>{19e1a85d-cda2-4cb1-b329-5554af858a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\mesh\SkinnedMesh">
+      <UniqueIdentifier>{af8ac382-b9b1-4926-b45b-c233f531574a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\mesh\collection">
+      <UniqueIdentifier>{87ab29d3-7bd1-40a7-8e6c-81aea885a989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="animationSet">
+      <UniqueIdentifier>{9965a96c-fbc7-41dd-8282-8fbef16d2503}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="interface.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="typedef.h">
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsModule.hpp">
+      <Filter>GraphicsModule</Filter>
+    </ClInclude>
+    <ClInclude Include="helperClasses.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.hpp">
+      <Filter>resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="SwapChain.hpp">
+      <Filter>resource\swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticMesh.h">
+      <Filter>resource\mesh\StaticMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinnedMEsh.h">
+      <Filter>resource\mesh\SkinnedMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCollection.h">
+      <Filter>resource\mesh\collection</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationSetCollection.h">
+      <Filter>animationSet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="interface.cpp">
+      <Filter>interface</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsModule.cpp">
+      <Filter>GraphicsModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="SwapChain.cpp">
+      <Filter>resource\swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticMesh.cpp">
+      <Filter>resource\mesh\StaticMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCollection.cpp">
+      <Filter>resource\mesh\collection</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinnedMEsh.cpp">
+      <Filter>resource\mesh\SkinnedMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationSetCollection.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
