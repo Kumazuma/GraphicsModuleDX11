@@ -10,7 +10,9 @@ public:
 	wchar_t const* __stdcall GetMaterialTextureName(wchar_t const* materialName) override;
 	
 private:
+	ComPtr<IBoneCollection> boneCollection;
 	std::vector<ComPtr<IMesh> > meshs;
 	std::unordered_map<std::wstring, std::wstring > diffuseTextures;
 	IGraphicsModule* gmodule;
+
 };

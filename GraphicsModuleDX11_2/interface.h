@@ -7,6 +7,7 @@ struct ISwapChain;
 struct IMeshCollection;
 struct IAnimationSet;
 struct IAnimationSetCollection;
+struct IBoneCollection;
 MIDL_INTERFACE("C8DFC34E-0C36-42BF-BF38-6652CA1F41D1") IGraphicsModule : public IUnknown
 {
 	STDMETHOD(CreateCBuffer(wchar_t const* name, size_t bufferSize)) PURE;
@@ -75,6 +76,7 @@ MIDL_INTERFACE("0C5DB153-7601-4776-82F7-2DCBC85C62B0")  ITexture2D : public IUnk
 			tmp->Release();
 			return tmp;
 		}
+		return nullptr;
 	}
 #endif
 };
@@ -155,6 +157,18 @@ MIDL_INTERFACE("A8B28854-95D3-4E24-BCFE-C7972C4D2BA1") IAnimationController : pu
 	STDMETHOD_(f32, GetTime())PURE;
 	STDMETHOD_(DirectX::XMFLOAT4X4 const*, GetBoneMatrices( )) PURE;
 };
+struct BoneDesc
+{
+	u32 index;
+	u32 parentIndex;
+	wchar_t const* name;
+};
+//[Guid("E1CD1BB7-B0E9-453A-B19E-679D5E6548C0")]
+MIDL_INTERFACE("E1CD1BB7-B0E9-453A-B19E-679D5E6548C0") IBoneCollection : public IUnknown
+{
+	STDMETHOD_(u32, GetCount()) PURE;
+	STDMETHOD(FindBone(wchar_t const* name, BoneDesc* out)) PURE;
+	STDMETHOD(GetBone(u32 index, BoneDesc* out)) PURE;
 
-
+};
 extern "C" HRESULT __declspec(dllexport) __stdcall CreateGraphicsModule(IGraphicsModule** out);

@@ -10,8 +10,17 @@ struct SkinnedMeshVertex
     std::array<f32, 4> boneWeights;
     std::array<u32, 4> boneIndices;
 };
-SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, aiMesh* mesh)
+SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, IBoneCollection* boneCollection, aiScene const* scene, aiMesh* mesh)
 {
+    std::unordered_map<std::string, u32> boneIndexTable;
+    for (u32 i = 0; i < boneCollection->GetCount(); ++i)
+    {
+        BoneDesc desc{};
+        boneCollection->GetBone(i, &desc);
+        boneIndexTable.emplace(ConvertWideToUTF8(desc.name), desc.index);
+    }
+
+
     ComPtr<ID3D11Device> device;
     std::vector<SkinnedMeshVertex> vertices;
     std::vector<u32> indices;
@@ -25,7 +34,7 @@ SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, a
     for (u32 i = 0; i < mesh->mNumVertices; ++i)
     {
         weights.clear();
-        SkinnedMeshVertex vertex;
+        SkinnedMeshVertex vertex{};
         vertex.vPos = {
             mesh->mVertices[i].x,
             mesh->mVertices[i].y,
@@ -46,6 +55,7 @@ SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, a
         for (u32 j = 0; j < meshBoneCount; ++j)
         {
             auto bone{ mesh->mBones[j] };
+            auto boneIndex = boneIndexTable.find(bone->mName.C_Str())->second;
             f32 weight{};
             bool found{ false };
             u32 weightCount{ bone->mNumWeights };
@@ -59,7 +69,7 @@ SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, a
             }
             if (found)
             {
-                weights.emplace_back(j, weight);
+                weights.emplace_back(boneIndex, weight);
             }
         }
         if (weights.size() > 4)
@@ -106,7 +116,7 @@ SkinnedMesh::SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, a
     subResource.pSysMem = indices.data();
     hr = device->CreateBuffer(&indexBufferDesc, &subResource, &indexBuffer);
 
-    indexCount = indices.size();
+    indexCount = static_cast<u32>(indices.size());
 }
 
 u32 __stdcall SkinnedMesh::GetIndexCount()

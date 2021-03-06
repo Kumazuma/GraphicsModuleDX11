@@ -12,7 +12,7 @@ int main()
     ComPtr<IGraphicsModule> gmodule;
     ComPtr<IAnimationSetCollection> animSetCollection;
     hr = CreateGraphicsModule(&gmodule);
-    gmodule->LoadAnimationSet(&animSetCollection, L"./Ninja_Idle_BS.fbx");
+    gmodule->LoadAnimationSet(&animSetCollection, L"./Ninja_Clear.fbx");
 
     std::cout << "Hello World!\n";
 }

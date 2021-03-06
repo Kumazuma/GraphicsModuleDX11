@@ -61,7 +61,7 @@ public:
 	}
 	STDMETHOD_(ULONG, Release())
 	{
-		ULONG r = InterlockedIncrement(&refCount);
+		ULONG r = InterlockedDecrement(&refCount);
 		if (r == 0)
 		{
 			delete this;

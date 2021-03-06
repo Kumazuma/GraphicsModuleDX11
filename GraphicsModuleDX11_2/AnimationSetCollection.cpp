@@ -17,13 +17,13 @@ AnimationSetCollection::AnimationSetCollection(wchar_t const* path)
     for (; it != end; ++it)
     {
         aiAnimation* anim{ *it };
-        
+       
     }
 }
 
 u32 __stdcall AnimationSetCollection::GetCount()
 {
-    return animationSets.size();
+    return static_cast<u32>(animationSets.size());
 }
 
 HRESULT __stdcall AnimationSetCollection::GetAnimationSet(u32 index, IAnimationSet** out)

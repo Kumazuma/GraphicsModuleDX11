@@ -159,7 +159,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationSet.h" />
     <ClInclude Include="AnimationSetCollection.h" />
+    <ClInclude Include="BoneCollection.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GraphicsModule.hpp" />
     <ClInclude Include="helperClasses.hpp" />
@@ -174,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimationSetCollection.cpp" />
+    <ClCompile Include="BoneCollection.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GraphicsModule.cpp" />
     <ClCompile Include="interface.cpp" />

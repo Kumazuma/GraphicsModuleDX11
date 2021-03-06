@@ -6,7 +6,7 @@
 class SkinnedMesh : public ISkinnedMesh
 {
 public:
-	SkinnedMesh(IGraphicsModule* const gmodule, aiScene const* scene, aiMesh* mesh);
+	SkinnedMesh(IGraphicsModule* const gmodule,IBoneCollection* boneCollection, aiScene const* scene, aiMesh* mesh);
 	u32		__stdcall GetIndexCount() override;
 	u32		__stdcall GetIndexBase() override;
 	u32		__stdcall GetBoneCount() override;

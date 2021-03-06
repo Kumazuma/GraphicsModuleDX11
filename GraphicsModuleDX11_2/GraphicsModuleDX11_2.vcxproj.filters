@@ -49,6 +49,9 @@
     <Filter Include="animationSet">
       <UniqueIdentifier>{9965a96c-fbc7-41dd-8282-8fbef16d2503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\mesh\BoneCollection">
+      <UniqueIdentifier>{87214506-9ea8-45b2-90f8-eb5e455efdd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -87,6 +90,12 @@
     <ClInclude Include="AnimationSetCollection.h">
       <Filter>animationSet</Filter>
     </ClInclude>
+    <ClInclude Include="BoneCollection.h">
+      <Filter>resource\mesh\BoneCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationSet.h">
+      <Filter>animationSet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -118,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="AnimationSetCollection.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BoneCollection.cpp">
+      <Filter>resource\mesh\BoneCollection</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -6,8 +6,18 @@
 #include <filesystem>
 #include "StaticMesh.h"
 #include "SkinnedMEsh.h"
+#include "BoneCollection.h"
+struct Bone
+{
+	std::wstring name;
+	size_t parentIdx;
+};
 MeshCollection::MeshCollection(IGraphicsModule* gmodule, wchar_t const* const path)
 {
+	std::unordered_map<std::wstring, size_t> nameIndexTable;
+	
+
+
 	Assimp::Importer importer;
 	std::string filename{ ConvertWideToUTF8(path) };
 	std::filesystem::path filePath{ filename };
@@ -20,6 +30,7 @@ MeshCollection::MeshCollection(IGraphicsModule* gmodule, wchar_t const* const pa
 	{
 		throw std::exception();
 	}
+	this->boneCollection = new RefCountImpl<BoneCollection, IBoneCollection, IUnknown>(pScene);
 	aiMesh** it{ pScene->mMeshes };
 	aiMesh** const end{ pScene->mMeshes + pScene->mNumMeshes };
 	std::vector <ComPtr<IMesh> > meshs;
@@ -29,7 +40,7 @@ MeshCollection::MeshCollection(IGraphicsModule* gmodule, wchar_t const* const pa
 		if (mesh->HasBones())
 		{
 			//TODO Skinned Mesh
-			auto skinnedMesh{ new RefCountImpl<SkinnedMesh, ISkinnedMesh, IMesh, IUnknown>(gmodule,pScene, mesh) };
+			auto skinnedMesh{ new RefCountImpl<SkinnedMesh, ISkinnedMesh, IMesh, IUnknown>(gmodule,boneCollection.Get(), pScene, mesh) };
 			meshs.emplace_back(std::move(skinnedMesh));
 			skinnedMesh->Release();
 		}
@@ -56,7 +67,7 @@ MeshCollection::MeshCollection(IGraphicsModule* gmodule, wchar_t const* const pa
 		}
 	}
 
-
+	this->boneCollection->Release();
 	this->gmodule = gmodule;
 	this->meshs.swap(meshs);
 }
